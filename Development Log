@@ -1,5 +1,0 @@
-[17/01[2019] Xanmashi
-- Started writing application
-    > Main.py sort of done (menu is written and interactable)
-    > Started hosts_file.py
-        - Main functionality has been written, read and write to the hosts file.
