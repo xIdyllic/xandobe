@@ -13,6 +13,12 @@ def add_entry(ip_type, ip_address, name):
     target_host.write()
 
 
+def import_file_entry(file_path):
+    file = target_host.import_file(file_path)
+    target_host.add([file])
+    target_host.write()
+
+
 def get_hosts():
     amount = target_host.determine_hosts_path(platform='win')
     try:

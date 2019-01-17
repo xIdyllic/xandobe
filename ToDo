@@ -2,6 +2,7 @@
 > Hosts file
     - Write a check for the existence of host file
     - Work on exceptions for hosts (if file exists, if it doesn't, does it contain custom entries, etc)
+    - Allow user to import their own file containing ip entries
 > Service manipulation
     - Create a list of all adobe service names
     - Most likely will use windows subsys for calling service objects directly

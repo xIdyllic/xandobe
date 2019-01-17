@@ -9,7 +9,7 @@ class Main():
             try:
                 if Menu(1):
                     print("You selected 1, initiating")
-                    self.hosts.get_hosts()
+                    self.hosts.import_file_entry('hosts_append')
                     break
                 if Menu(2):
                     print("You selected 2")
