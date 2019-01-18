@@ -11,6 +11,11 @@ This is an application that will allow you to patch any Adobe creative suite pro
   - The tool will create rules for inbound/outbound connections to do with only the installed Adobe Applications as a fallback just incase for any reason your services enable again
 
 ## **4. Complete patch**
-  It has the option to completely patch everything for you rather than isolating certain functions and using only the hosts editor
+  - It has the option to completely patch everything for you rather than isolating certain functions and using only the hosts editor
 
+## Requirements
+  - python-hosts
+  - pywin32
+  - setuptools
+  - win-inet-pton
 # More to come.
