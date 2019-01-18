@@ -1,5 +1,5 @@
 from python_hosts import Hosts, HostsException, HostsEntry, utils, exception
-import logging, os, hashlib
+import logging, os
 
 
 class Entries:
