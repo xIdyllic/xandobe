@@ -9,7 +9,6 @@ class Main:
         while True:
             try:
                 if self.menu(1):
-                    self.hosts.prompt_entry()
                     break
                 elif self.menu(2):
                     break
@@ -35,7 +34,7 @@ class Main:
 [4] - Edit Firewall\n
 [5] - Disable Adobe Startup applications\n
 [6] - Perform complete patch (automatically goes from 1 through 5 for you)\n""")
-        menu_choice = int(input("Select action to perform via integer: "))
+        menu_choice = int(input("Select value as int: "))
         return menu_choice
 
 

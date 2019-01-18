@@ -1,5 +1,5 @@
 from python_hosts import Hosts, HostsException, HostsEntry, utils, exception
-import logging, os
+import logging, os, hashlib
 
 
 class Entries:
@@ -33,20 +33,40 @@ class Entries:
                 new_entry = HostsEntry(entry_type='ipv4', address=ip_entry, names=[name_entry])
                 self.target_host.add([new_entry])
                 self.target_host.write()
-            except exception.UnableToWriteHosts() as writefail:
-                logging.error(writefail)
+            except Exception as writefail:
+                print("\nCustom entry failed, an exception was caught. Could be a permissions error >> Check adobe_patcher.log")
+                logging.exception(writefail)
         elif ip_entry is not utils.is_ipv4(ip_entry):
             print("\nIP Address is not an IPv4 Address. Please try again.\n")
             self.add_custom_entry()
 
     def import_file_entry(self, file_path):
-        self.target_host.import_file(file_path)
+        try:
+            self.target_host.import_file(file_path)
+        except Exception as writefail:
+            print("File import failed, an exception was caught. Could be a permissions error >> check adobe_patcher.log")
+            logging.exception(writefail)
 
     def get_hosts(self):
-        amount = self.target_host.determine_hosts_path(platform='win')
         try:
-            if os.path.isdir(amount) and os.path.exists(amount):
-                self.logger.info(amount, " - Path and file exists.")
-        except IOError as fileErr:
+            path = self.target_host.determine_hosts_path()
+            if path:
+                print("File exists!")
+                logging.debug(path)
+        except Exception as fileErr:
             logging.error(fileErr)
-            print("There was an error, I have to exit now, sorry. Please check adobe_patcher.log")
+            print("File not found! Check adobe_patcher.log")
+
+    def remove_duplicate_entries(self):
+        input_file_path = os.getcwd() + "adobe_patcher.log"
+        output_file_path = os.getcwd()
+        lines_hash = set()
+        output_file = open(output_file_path, 'w+')
+
+        for line in open(input_file_path, 'r'):
+            hash_val = hashlib.md5(line.rstrip())
+            if hash_val not in lines_hash:
+                output_file.write(line)
+                lines_hash.add(hash_val)
+        output_file.close()
+
