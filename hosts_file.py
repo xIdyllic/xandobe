@@ -1,5 +1,5 @@
-from python_hosts import *
-import logging, os, exception
+from python_hosts import Hosts, HostsException, HostsEntry, utils, exception
+import logging, os
 
 
 class Entries:
@@ -16,7 +16,15 @@ class Entries:
             self.add_custom_entry()
         if user_prompt == 2:
             file_path = input("Enter the path of the custom .txt file (no need for full path if file is in same directory as this tool): ")
-            self.import_file_entry(file_path)
+            if utils.is_readable(file_path):
+                self.import_file_entry(file_path)
+            if file_path is not utils.is_readable(file_path):
+                try_again = input("Cannot find file path! Would you like to try again? [y/n]: ")
+                if try_again == 'y':
+                    os.system('cls')
+                    self.prompt_entry()
+                elif try_again == 'n':
+                    exit()
 
     def add_custom_entry(self):
         ip_entry, name_entry = (input("Type your input, example: 127.0.0.1 localhost (include the space between IP Address and name.)\nEntry: ").split())
@@ -32,7 +40,7 @@ class Entries:
             self.add_custom_entry()
 
     def import_file_entry(self, file_path):
-        file = self.target_host.import_file(file_path)
+        self.target_host.import_file(file_path)
 
     def get_hosts(self):
         amount = self.target_host.determine_hosts_path(platform='win')

@@ -1,1 +1,0 @@
-class HaltProgram(Exception): pass

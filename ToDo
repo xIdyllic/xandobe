@@ -1,8 +1,8 @@
 [17/01/2019] Xanmashi
 > Hosts file
     - Write a check for the existence of host file
-    - Work on exceptions for hosts (if file exists, if it doesn't, does it contain custom entries, etc)
-    - Allow user to import their own file containing ip entries [DONE, CONTAINS ERROR HOWEVER, BUT STILL FUNCTIONS]
+    - Work on exceptions for hosts (if file exists, if it doesn't, does it contain custom entries, etc) [HALF DONE]
+    - Allow user to import their own file containing ip entries [DONE]
     - Add a check for duplicates inside
 > Service manipulation
     - Create a list of all adobe service names
