@@ -57,16 +57,12 @@ class Entries:
             logging.error(fileErr)
             print("File not found! Check adobe_patcher.log")
 
-    def remove_duplicate_entries(self):
-        input_file_path = os.getcwd() + "adobe_patcher.log"
-        output_file_path = os.getcwd()
+    def remove_duplicate_entries(self, input_file, output_file):
         lines_hash = set()
-        output_file = open(output_file_path, 'w+')
-
-        for line in open(input_file_path, 'r'):
-            hash_val = hashlib.md5(line.rstrip())
-            if hash_val not in lines_hash:
-                output_file.write(line)
-                lines_hash.add(hash_val)
-        output_file.close()
+        out_file = open(output_file, 'w')
+        for line in open(input_file, 'r'):
+            if line not in lines_hash:
+                out_file.write(line)
+                lines_hash.add(line)
+        out_file.close()
 
