@@ -39,7 +39,7 @@ This is an application that will allow you to patch any Adobe creative suite pro
     - Function will determine the path of the system host file via python_hosts module determine_hosts_path() function
 
 - *remove_duplicate_entries*()
-    - Function will remove all duplcate entries with a given (readable) file.
+    - Function will remove all duplicate entries with a given (readable) file.
     **Args**
 	- input_file
 		The file that you want to remove duplicate string entries from
