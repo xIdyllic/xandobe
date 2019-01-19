@@ -1,4 +1,4 @@
-# Xandobe
+# Xandobe [PRE-ALPHA]
 This is an application that will allow you to patch any Adobe creative suite product up to 2018. This tool does not physically crack the applications, moreso just patches the licensing to avoid any issues.
 # What will it do?
 ## **1. Windows Host Files**
