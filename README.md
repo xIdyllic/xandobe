@@ -31,7 +31,8 @@ This is an application that will allow you to patch any Adobe creative suite pro
     - This will allow the user to enter a single entry with the format `127.0.0.1 hostname` 
     
 - import_file_entry()
-    - Controls the import process of windows hosts file. 
+    - Controls the import process of windows hosts file.
+    
     **Args**
 	- file_path > full path to hosts file including file itself: **C:\Windows\System32\drivers\etc**
 
@@ -40,6 +41,7 @@ This is an application that will allow you to patch any Adobe creative suite pro
 
 - *remove_duplicate_entries*()
     - Function will remove all duplicate entries with a given (readable) file.
+    
     **Args**
 	- input_file
 		The file that you want to remove duplicate string entries from
