@@ -1,0 +1,4 @@
+python-hosts
+pywin32
+setuptools
+win-inet-pton

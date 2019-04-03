@@ -1,14 +1,15 @@
-import hosts_file
+import hosts
 
 
 class Main:
 
-    hosts = hosts_file.Entries()
+    hosts = hosts.Entries()
 
     def launch(self):
         while True:
             try:
                 if self.menu(1):
+                    self.hosts.prompt_entry()
                     break
                 elif self.menu(2):
                     break
