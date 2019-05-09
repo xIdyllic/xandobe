@@ -30,7 +30,7 @@ class Firewall:
                 self.logger.info(" User is admin, adding inbound firewall rule...")
                 try:
                     self.subproc.Popen(["powershell.exe", self.ps_file_inbound], stdout=self.subproc.PIPE)
-                    self.logger.log(self.logger.INFO, " Firewall rule added to inbound. Adding to outbound...")
+                    self.logger.info(" Firewall rule added to inbound. Adding to outbound...")
                     try:
                         self.logger.info("Attempting to add Outbound")
                         self.subproc.Popen(['powershell.exe', self.ps_file_outbound], stdout=self.subproc.PIPE)
@@ -48,7 +48,6 @@ class Firewall:
     def get_path(self, paths, executable=''):
         adobe_paths = []
         for dir in self.system.walk(paths):
-            print(dir)
-            exit()
+            pass
 
 
